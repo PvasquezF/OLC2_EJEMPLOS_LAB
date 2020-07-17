@@ -1,18 +1,15 @@
 %{
-    
 %}
 %lex
 %options case-insensitive
 entero [0-9]+
 decimal {entero}"."{entero}
-stringliteral (\"[^"]*\")
 %%
 
 \s+                   /* skip whitespace */
 
 {decimal}             return 'DECIMAL' 
 {entero}              return 'ENTERO'
-{stringliteral}       return 'STRING_LITERAL'
 "*"                   return '*'
 "/"                   return '/'
 ";"                   return ';'
@@ -20,43 +17,28 @@ stringliteral (\"[^"]*\")
 "+"                   return '+'
 "("                   return '('
 ")"                   return ')'  
-"["                   return '['
-"]"                   return ']'
-"evaluar"             return 'evaluar'
-
-<<EOF>>				  return 'EOF'
+<<EOF>>		       return 'EOF'
 
 /lex
-
-%left '+' '-'
-%left '*' '/'
-%left UMENOS
 
 %start INICIO
 
 %%
 
-INICIO : INSTRUCCIONES EOF {}
-;
+INICIO : SUMA ';' EOF       { $$ = { val: $1.val, node: newNode(yy, yystate, $1.node, $2, 'EOF')}; return $$; } 
+       ;
 
-INSTRUCCIONES : INSTRUCCIONES INSTRUCCION { console.log($2);}
-              | INSTRUCCION               { console.log($1); }
-              | error                     { console.log('Este es un error sintáctico: ' 
-                                            + yytext + ', en la linea: ' 
-                                            + this._$.first_line + ', en la columna: ' 
-                                            + this._$.first_column); }
-              ;
+SUMA : SUMA '+' MULT        { $$ = { val: $1.val + $3.val,  node: newNode(yy, yystate, $1.node, $2, $3.node)}; }       
+     | SUMA '-' MULT        { $$ = { val: $1.val - $3.val,  node: newNode(yy, yystate, $1.node, $2, $3.node)}; }
+     | MULT                 { $$ = { val: $1.val,           node: newNode(yy, yystate, $1.node)}; }
+     ;
 
-INSTRUCCION : 'evaluar' '[' EXPRESION ']' ';' { $$ = 'El valor de la expresión es: ' + $3;}
-            ;
+MULT : MULT '*' VALOR       { $$ = { val: $1.val + $3.val,  node: newNode(yy, yystate, $1.node, $2, $3.node)}; }       
+     | MULT '/' VALOR       { $$ = { val: $1.val - $3.val,  node: newNode(yy, yystate, $1.node, $2, $3.node)}; }
+     | VALOR                { $$ = { val: $1.val,           node: newNode(yy, yystate, $1.node)}; }
+     ;
 
-EXPRESION : '-' EXPRESION %prec UMENOS	    { $$ = $2 * -1; }
-          | EXPRESION '+' EXPRESION		    { $$ = $1 + $3; }
-          | EXPRESION '-' EXPRESION		    { $$ = $1 - $3; }
-          | EXPRESION '*' EXPRESION		    { $$ = $1 * $3; }
-          | EXPRESION '/' EXPRESION	        { $$ = $1 / $3; }
-          | ENTERO						    { $$ = Number($1); }
-          | DECIMAL						    { $$ = Number($1); }
-          | STRING_LITERAL				    { $$ = $1; }
-          | '(' EXPRESION ')'		        { $$ = $2; }
-          ;
+VALOR : '(' SUMA ')'        { $$ = { val: Number($2),       node: newNode(yy, yystate, $1, $2, $3)}; }
+      | ENTERO              { $$ = { val: Number($1),       node: newNode(yy, yystate, $1)}; }
+      | DECIMAL             { $$ = { val: Number($1),       node: newNode(yy, yystate, $1)}; }
+      ;
