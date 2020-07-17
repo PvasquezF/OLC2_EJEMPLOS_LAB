@@ -61,7 +61,7 @@ function generateTree(treeData) {
             .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
         nodeEnter.append("text")
-            .attr("x", function(d) { return d.children || d._children ? 30 : -30; })
+            .attr("x", function(d) { return d.children || d._children ? 50 : -50; })
             .attr("dy", "25px")
             .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
             .text(function(d) { return d.name; })
