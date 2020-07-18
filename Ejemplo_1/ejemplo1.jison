@@ -25,7 +25,7 @@ decimal {entero}"."{entero}
 
 %%
 
-INICIO : SUMA ';' EOF       { $$ = { val: $1.val, node: newNode(yy, yystate, $1.node, $2, 'EOF')}; return $$; } 
+INICIO : SUMA EOF       { $$ = { val: $1.val, node: newNode(yy, yystate, $1.node, $2, 'EOF')}; return $$; } 
        ;
 
 SUMA : SUMA '+' MULT        { $$ = { val: $1.val + $3.val,  node: newNode(yy, yystate, $1.node, $2, $3.node)}; }       

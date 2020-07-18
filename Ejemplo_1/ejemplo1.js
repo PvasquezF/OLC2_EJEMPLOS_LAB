@@ -71,20 +71,20 @@
     recoverable: (boolean: TRUE when the parser has a error recovery rule available for this particular error)
   }
 */
-var grammar = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,5],$V1=[1,6],$V2=[1,7],$V3=[1,9],$V4=[1,10],$V5=[5,7,9,14],$V6=[1,11],$V7=[1,12],$V8=[5,7,9,10,12,14];
+var ejemplo1 = (function(){
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,5],$V1=[1,6],$V2=[1,7],$V3=[1,9],$V4=[1,10],$V5=[5,6,8,13],$V6=[1,11],$V7=[1,12],$V8=[5,6,8,9,11,13];
 var parser = {trace: function trace () { },
 yy: {},
-symbols_: {"error":2,"INICIO":3,"SUMA":4,";":5,"EOF":6,"+":7,"MULT":8,"-":9,"*":10,"VALOR":11,"/":12,"(":13,")":14,"ENTERO":15,"DECIMAL":16,"$accept":0,"$end":1},
-terminals_: {2:"error",5:";",6:"EOF",7:"+",9:"-",10:"*",12:"/",13:"(",14:")",15:"ENTERO",16:"DECIMAL"},
-productions_: [0,[3,3],[4,3],[4,3],[4,1],[8,3],[8,3],[8,1],[11,3],[11,1],[11,1]],
+symbols_: {"error":2,"INICIO":3,"SUMA":4,"EOF":5,"+":6,"MULT":7,"-":8,"*":9,"VALOR":10,"/":11,"(":12,")":13,"ENTERO":14,"DECIMAL":15,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",6:"+",8:"-",9:"*",11:"/",12:"(",13:")",14:"ENTERO",15:"DECIMAL"},
+productions_: [0,[3,2],[4,3],[4,3],[4,1],[7,3],[7,3],[7,1],[10,3],[10,1],[10,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
 var $0 = $$.length - 1;
 switch (yystate) {
 case 1:
- this.$ = { val: $$[$0-2].val, node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], 'EOF')}; return this.$; 
+ this.$ = { val: $$[$0-1].val, node: newNode(yy, yystate, $$[$0-1].node, $$[$0], 'EOF')}; return this.$; 
 break;
 case 2: case 5:
  this.$ = { val: $$[$0-2].val + $$[$0].val,  node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)}; 
@@ -103,8 +103,8 @@ case 9: case 10:
 break;
 }
 },
-table: [{3:1,4:2,8:3,11:4,13:$V0,15:$V1,16:$V2},{1:[3]},{5:[1,8],7:$V3,9:$V4},o($V5,[2,4],{10:$V6,12:$V7}),o($V8,[2,7]),{4:13,8:3,11:4,13:$V0,15:$V1,16:$V2},o($V8,[2,9]),o($V8,[2,10]),{6:[1,14]},{8:15,11:4,13:$V0,15:$V1,16:$V2},{8:16,11:4,13:$V0,15:$V1,16:$V2},{11:17,13:$V0,15:$V1,16:$V2},{11:18,13:$V0,15:$V1,16:$V2},{7:$V3,9:$V4,14:[1,19]},{1:[2,1]},o($V5,[2,2],{10:$V6,12:$V7}),o($V5,[2,3],{10:$V6,12:$V7}),o($V8,[2,5]),o($V8,[2,6]),o($V8,[2,8])],
-defaultActions: {14:[2,1]},
+table: [{3:1,4:2,7:3,10:4,12:$V0,14:$V1,15:$V2},{1:[3]},{5:[1,8],6:$V3,8:$V4},o($V5,[2,4],{9:$V6,11:$V7}),o($V8,[2,7]),{4:13,7:3,10:4,12:$V0,14:$V1,15:$V2},o($V8,[2,9]),o($V8,[2,10]),{1:[2,1]},{7:14,10:4,12:$V0,14:$V1,15:$V2},{7:15,10:4,12:$V0,14:$V1,15:$V2},{10:16,12:$V0,14:$V1,15:$V2},{10:17,12:$V0,14:$V1,15:$V2},{6:$V3,8:$V4,13:[1,18]},o($V5,[2,2],{9:$V6,11:$V7}),o($V5,[2,3],{9:$V6,11:$V7}),o($V8,[2,5]),o($V8,[2,6]),o($V8,[2,8])],
+defaultActions: {8:[2,1]},
 parseError: function parseError (str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -582,25 +582,25 @@ var YYSTATE=YY_START;
 switch($avoiding_name_collisions) {
 case 0:/* skip whitespace */
 break;
-case 1:return 16 
+case 1:return 15 
 break;
-case 2:return 15
+case 2:return 14
 break;
-case 3:return 10
+case 3:return 9
 break;
-case 4:return 12
+case 4:return 11
 break;
-case 5:return 5
+case 5:return ';'
 break;
-case 6:return 9
+case 6:return 8
 break;
-case 7:return 7
+case 7:return 6
 break;
-case 8:return 13
+case 8:return 12
 break;
-case 9:return 14  
+case 9:return 13  
 break;
-case 10:return 6
+case 10:return 5
 break;
 }
 },
@@ -619,9 +619,9 @@ return new Parser;
 
 
 if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
-exports.parser = grammar;
-exports.Parser = grammar.Parser;
-exports.parse = function () { return grammar.parse.apply(grammar, arguments); };
+exports.parser = ejemplo1;
+exports.Parser = ejemplo1.Parser;
+exports.parse = function () { return ejemplo1.parse.apply(ejemplo1, arguments); };
 exports.main = function commonjsMain (args) {
     if (!args[1]) {
         console.log('Usage: '+args[0]+' FILE');

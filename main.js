@@ -2,9 +2,13 @@ function ejemplo1() {
     document.getElementById("salida").value = '';
     treeData = [];
     var content = document.getElementById("entrada").value;
-    var result = grammar.parse(content);
+    if (document.getElementById("grafo")) {
+        document.getElementById("grafo").remove();
+    }
+    var result = ejemplo1.parse(content);
     document.getElementById("salida").value = result.val;
-    generateTree([result.node]);
+    const a = generateTree([result.node]);
+    console.log(a)
 }
 
 function newNode(yy, state, ...nodes) {
