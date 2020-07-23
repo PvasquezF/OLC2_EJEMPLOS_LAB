@@ -86,14 +86,20 @@ switch (yystate) {
 case 1:
  this.$ = { val: $$[$0-1].val, node: newNode(yy, yystate, $$[$0-1].node, $$[$0], 'EOF')}; return this.$; 
 break;
-case 2: case 5:
+case 2:
  this.$ = { val: $$[$0-2].val + $$[$0].val,  node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)}; 
 break;
-case 3: case 6:
+case 3:
  this.$ = { val: $$[$0-2].val - $$[$0].val,  node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)}; 
 break;
 case 4: case 7:
  this.$ = { val: $$[$0].val,           node: newNode(yy, yystate, $$[$0].node)}; 
+break;
+case 5:
+ this.$ = { val: $$[$0-2].val * $$[$0].val,  node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)}; 
+break;
+case 6:
+ this.$ = { val: $$[$0-2].val / $$[$0].val,  node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)}; 
 break;
 case 8:
  this.$ = { val: Number($$[$0-1]),       node: newNode(yy, yystate, $$[$0-2], $$[$0-1], $$[$0])}; 

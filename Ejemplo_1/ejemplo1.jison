@@ -33,8 +33,8 @@ SUMA : SUMA '+' MULT        { $$ = { val: $1.val + $3.val,  node: newNode(yy, yy
      | MULT                 { $$ = { val: $1.val,           node: newNode(yy, yystate, $1.node)}; }
      ;
 
-MULT : MULT '*' VALOR       { $$ = { val: $1.val + $3.val,  node: newNode(yy, yystate, $1.node, $2, $3.node)}; }       
-     | MULT '/' VALOR       { $$ = { val: $1.val - $3.val,  node: newNode(yy, yystate, $1.node, $2, $3.node)}; }
+MULT : MULT '*' VALOR       { $$ = { val: $1.val * $3.val,  node: newNode(yy, yystate, $1.node, $2, $3.node)}; }       
+     | MULT '/' VALOR       { $$ = { val: $1.val / $3.val,  node: newNode(yy, yystate, $1.node, $2, $3.node)}; }
      | VALOR                { $$ = { val: $1.val,           node: newNode(yy, yystate, $1.node)}; }
      ;
 
