@@ -8,7 +8,6 @@ function ejemplo1() {
     var result = ejemplo1.parse(content);
     document.getElementById("salida").value = result.val;
     const a = generateTree([result.node]);
-    console.log(a)
 }
 
 function newNode(yy, state, ...nodes) {
