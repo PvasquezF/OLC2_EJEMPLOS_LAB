@@ -1,16 +1,19 @@
-function ejemplo1() {
+function parseExample() {
     document.getElementById("salida").value = '';
     treeData = [];
     var content = document.getElementById("entrada").value;
     if (document.getElementById("grafo")) {
         document.getElementById("grafo").remove();
     }
-    var result = ejemplo1.parse(content);
+    var result = ejemplo3.parse(content);
+    console.log(result);
+    //document.getElementById("salida").value = result;
     document.getElementById("salida").value = result.val;
     const a = generateTree([result.node]);
 }
 
 function newNode(yy, state, ...nodes) {
+    console.log(nodes)
     const parent = getNonTerminal(yy, state);
     const children = [];
     for (let node of nodes) {
