@@ -20,13 +20,11 @@ decimal {entero}"."{entero}
 <<EOF>>		       return 'EOF'
 
 /lex
-%type <Date> expression
 %start INICIO
 
 %%
 
 INICIO : E EOF  { $$ = { val: Number(0), node: newNode(yy, yystate, $1.node, 'EOF')}; return $$; }
-        | expression EOF { $$ = { val: Number(0), node: newNode(yy, yystate, $1.node, 'EOF')}; return $$; }
        ;
 
 E :  T E1       { $$ = { val: Number(0), node: newNode(yy, yystate, $1.node, $2.node)}; }  
@@ -49,6 +47,3 @@ F : ENTERO      { $$ = { val: Number($1), node: newNode(yy, yystate, $1)}; }
   | DECIMAL     { $$ = { val: Number($1), node: newNode(yy, yystate, $1)}; }
   | '(' E ')'   { $$ = { val: $1.val, node: newNode(yy, yystate, '(', $2, ')')}; }
   ;
-
-expression:'abc'{$$=new Date();}
-;

@@ -72,57 +72,54 @@
   }
 */
 var ejemplo3 = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,7],$V1=[1,8],$V2=[1,9],$V3=[5,18],$V4=[2,6],$V5=[1,13],$V6=[1,14],$V7=[5,9,10,18],$V8=[2,10],$V9=[1,16],$Va=[1,17],$Vb=[5,9,10,13,14,18];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,5],$V1=[1,6],$V2=[1,7],$V3=[5,17],$V4=[2,5],$V5=[1,10],$V6=[1,11],$V7=[5,8,9,17],$V8=[2,9],$V9=[1,13],$Va=[1,14],$Vb=[5,8,9,12,13,17];
 var parser = {trace: function trace () { },
 yy: {},
-symbols_: {"error":2,"INICIO":3,"E":4,"EOF":5,"expression":6,"T":7,"E1":8,"+":9,"-":10,"F":11,"T1":12,"*":13,"/":14,"ENTERO":15,"DECIMAL":16,"(":17,")":18,"abc":19,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",9:"+",10:"-",13:"*",14:"/",15:"ENTERO",16:"DECIMAL",17:"(",18:")",19:"abc"},
-productions_: [0,[3,2],[3,2],[4,2],[8,3],[8,3],[8,0],[7,2],[12,3],[12,3],[12,0],[11,1],[11,1],[11,3],[6,1]],
+symbols_: {"error":2,"INICIO":3,"E":4,"EOF":5,"T":6,"E1":7,"+":8,"-":9,"F":10,"T1":11,"*":12,"/":13,"ENTERO":14,"DECIMAL":15,"(":16,")":17,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",8:"+",9:"-",12:"*",13:"/",14:"ENTERO",15:"DECIMAL",16:"(",17:")"},
+productions_: [0,[3,2],[4,2],[7,3],[7,3],[7,0],[6,2],[11,3],[11,3],[11,0],[10,1],[10,1],[10,3]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
 var $0 = $$.length - 1;
 switch (yystate) {
-case 1: case 2:
+case 1:
  this.$ = { val: Number(0), node: newNode(yy, yystate, $$[$0-1].node, 'EOF')}; return this.$; 
 break;
-case 3:
+case 2:
  this.$ = { val: Number(0), node: newNode(yy, yystate, $$[$0-1].node, $$[$0].node)}; 
 break;
-case 4:
+case 3:
  this.$ = { val: $$[$0-1] , node: newNode(yy, yystate, '+',$$[$0-1].node, $$[$0].node)}; 
 break;
-case 5:
+case 4:
  this.$ = { val: Number(0), node: newNode(yy, yystate, '-',$$[$0-1].node, $$[$0].node)}; 
 break;
-case 6:
+case 5:
  this.$ = { val: Number(0), node: newNode(yy, yystate, 'e')}; 
 break;
-case 7:
+case 6:
  this.$ = { val: $$[$0-1].val, node: newNode(yy, yystate, $$[$0-1].node, $$[$0].node)}; 
 break;
-case 8:
+case 7:
  this.$ = { val: $$[$0-1].val, node: newNode(yy, yystate, '*', $$[$0-1].node, $$[$0].node)}; 
 break;
-case 9:
+case 8:
  this.$ = { val: $$[$0-1].val, node: newNode(yy, yystate, '/', $$[$0-1].node, $$[$0].node)}; 
 break;
-case 10:
+case 9:
  this.$ = { val: Number(1), node: newNode(yy, yystate, 'e')}; 
 break;
-case 11: case 12:
+case 10: case 11:
  this.$ = { val: Number($$[$0]), node: newNode(yy, yystate, $$[$0])}; 
 break;
-case 13:
+case 12:
  this.$ = { val: $$[$0-2].val, node: newNode(yy, yystate, '(', $$[$0-1], ')')}; 
-break;
-case 14:
-this.$=new Date();
 break;
 }
 },
-table: [{3:1,4:2,6:3,7:4,11:6,15:$V0,16:$V1,17:$V2,19:[1,5]},{1:[3]},{5:[1,10]},{5:[1,11]},o($V3,$V4,{8:12,9:$V5,10:$V6}),{5:[2,14]},o($V7,$V8,{12:15,13:$V9,14:$Va}),o($Vb,[2,11]),o($Vb,[2,12]),{4:18,7:4,11:6,15:$V0,16:$V1,17:$V2},{1:[2,1]},{1:[2,2]},o($V3,[2,3]),{7:19,11:6,15:$V0,16:$V1,17:$V2},{7:20,11:6,15:$V0,16:$V1,17:$V2},o($V7,[2,7]),{11:21,15:$V0,16:$V1,17:$V2},{11:22,15:$V0,16:$V1,17:$V2},{18:[1,23]},o($V3,$V4,{8:24,9:$V5,10:$V6}),o($V3,$V4,{8:25,9:$V5,10:$V6}),o($V7,$V8,{12:26,13:$V9,14:$Va}),o($V7,$V8,{12:27,13:$V9,14:$Va}),o($Vb,[2,13]),o($V3,[2,4]),o($V3,[2,5]),o($V7,[2,8]),o($V7,[2,9])],
-defaultActions: {5:[2,14],10:[2,1],11:[2,2]},
+table: [{3:1,4:2,6:3,10:4,14:$V0,15:$V1,16:$V2},{1:[3]},{5:[1,8]},o($V3,$V4,{7:9,8:$V5,9:$V6}),o($V7,$V8,{11:12,12:$V9,13:$Va}),o($Vb,[2,10]),o($Vb,[2,11]),{4:15,6:3,10:4,14:$V0,15:$V1,16:$V2},{1:[2,1]},o($V3,[2,2]),{6:16,10:4,14:$V0,15:$V1,16:$V2},{6:17,10:4,14:$V0,15:$V1,16:$V2},o($V7,[2,6]),{10:18,14:$V0,15:$V1,16:$V2},{10:19,14:$V0,15:$V1,16:$V2},{17:[1,20]},o($V3,$V4,{7:21,8:$V5,9:$V6}),o($V3,$V4,{7:22,8:$V5,9:$V6}),o($V7,$V8,{11:23,12:$V9,13:$Va}),o($V7,$V8,{11:24,12:$V9,13:$Va}),o($Vb,[2,12]),o($V3,[2,3]),o($V3,[2,4]),o($V7,[2,7]),o($V7,[2,8])],
+defaultActions: {8:[2,1]},
 parseError: function parseError (str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -600,23 +597,23 @@ var YYSTATE=YY_START;
 switch($avoiding_name_collisions) {
 case 0:/* skip whitespace */
 break;
-case 1:return 16 
+case 1:return 15 
 break;
-case 2:return 15
+case 2:return 14
 break;
-case 3:return 13
+case 3:return 12
 break;
-case 4:return 14
+case 4:return 13
 break;
 case 5:return ';'
 break;
-case 6:return 10
+case 6:return 9
 break;
-case 7:return 9
+case 7:return 8
 break;
-case 8:return 17
+case 8:return 16
 break;
-case 9:return 18  
+case 9:return 17  
 break;
 case 10:return 5
 break;
