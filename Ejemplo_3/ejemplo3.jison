@@ -24,26 +24,26 @@ decimal {entero}"."{entero}
 
 %%
 
-INICIO : E EOF  { $$ = { val: Number(0), node: newNode(yy, yystate, $1.node, 'EOF')}; return $$; }
+INICIO : E EOF  { console.log($1);  }
        ;
 
-E :  T E1       { $$ = { val: Number(0), node: newNode(yy, yystate, $1.node, $2.node)}; }  
+E :  T E1       { var s = eval('$$'); $$ = $2; }  
   ;
 
-E1 : '+' T E1   { $$ = { val: $2 , node: newNode(yy, yystate, '+',$2.node, $3.node)}; }
-   | '-' T E1   { $$ = { val: Number(0), node: newNode(yy, yystate, '-',$2.node, $3.node)}; }
-   |            { $$ = { val: Number(0), node: newNode(yy, yystate, 'e')}; }
+E1 : '+' T E1   { var s = eval('$$'); $$ = s[eval('$$').length-4] + $3; }
+   | '-' T E1   { var s = eval('$$'); $$ = s[eval('$$').length-4] - $3; }
+   |            { var s = eval('$$'); $$ = s[eval('$$').length-1]; }
    ;
 
-T :  F T1       { $$ = { val: $1.val, node: newNode(yy, yystate, $1.node, $2.node)}; } 
+T :  F T1       { var s = eval('$$'); $$ = $2; } 
   ;
 
-T1 : '*' F T1   { $$ = { val: $2.val, node: newNode(yy, yystate, '*', $2.node, $3.node)}; }
-   | '/' F T1   { $$ = { val: $2.val, node: newNode(yy, yystate, '/', $2.node, $3.node)}; }
-   |            { $$ = { val: Number(1), node: newNode(yy, yystate, 'e')}; } 
+T1 : '*' F T1   { var s = eval('$$'); $$ = s[eval('$$').length-4] * $3; }
+   | '/' F T1   { var s = eval('$$'); $$ = s[eval('$$').length-4] / $3; }
+   |            { var s = eval('$$'); $$ = s[eval('$$').length-1]; } 
    ;
 
-F : ENTERO      { $$ = { val: Number($1), node: newNode(yy, yystate, $1)}; }
-  | DECIMAL     { $$ = { val: Number($1), node: newNode(yy, yystate, $1)}; }
-  | '(' E ')'   { $$ = { val: $1.val, node: newNode(yy, yystate, '(', $2, ')')}; }
+F : ENTERO      { var s = eval('$$'); $$ = Number($1); }
+  | DECIMAL     { var s = eval('$$'); $$ = $1; }
+  | '(' E ')'   { var s = eval('$$'); $$ = $2; }
   ;

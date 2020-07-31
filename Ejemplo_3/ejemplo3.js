@@ -84,37 +84,31 @@ performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* actio
 var $0 = $$.length - 1;
 switch (yystate) {
 case 1:
- this.$ = { val: Number(0), node: newNode(yy, yystate, $$[$0-1].node, 'EOF')}; return this.$; 
+ console.log($$[$0-1]);  
 break;
-case 2:
- this.$ = { val: Number(0), node: newNode(yy, yystate, $$[$0-1].node, $$[$0].node)}; 
+case 2: case 6: case 11:
+ var s = eval('$$'); this.$ = $$[$0]; 
 break;
 case 3:
- this.$ = { val: $$[$0-1] , node: newNode(yy, yystate, '+',$$[$0-1].node, $$[$0].node)}; 
+ var s = eval('$$'); this.$ = s[eval('$$').length-4] + $$[$0]; 
 break;
 case 4:
- this.$ = { val: Number(0), node: newNode(yy, yystate, '-',$$[$0-1].node, $$[$0].node)}; 
+ var s = eval('$$'); this.$ = s[eval('$$').length-4] - $$[$0]; 
 break;
-case 5:
- this.$ = { val: Number(0), node: newNode(yy, yystate, 'e')}; 
-break;
-case 6:
- this.$ = { val: $$[$0-1].val, node: newNode(yy, yystate, $$[$0-1].node, $$[$0].node)}; 
+case 5: case 9:
+ var s = eval('$$'); this.$ = s[eval('$$').length-1]; 
 break;
 case 7:
- this.$ = { val: $$[$0-1].val, node: newNode(yy, yystate, '*', $$[$0-1].node, $$[$0].node)}; 
+ var s = eval('$$'); this.$ = s[eval('$$').length-4] * $$[$0]; 
 break;
 case 8:
- this.$ = { val: $$[$0-1].val, node: newNode(yy, yystate, '/', $$[$0-1].node, $$[$0].node)}; 
+ var s = eval('$$'); this.$ = s[eval('$$').length-4] / $$[$0]; 
 break;
-case 9:
- this.$ = { val: Number(1), node: newNode(yy, yystate, 'e')}; 
-break;
-case 10: case 11:
- this.$ = { val: Number($$[$0]), node: newNode(yy, yystate, $$[$0])}; 
+case 10:
+ var s = eval('$$'); this.$ = Number($$[$0]); 
 break;
 case 12:
- this.$ = { val: $$[$0-2].val, node: newNode(yy, yystate, '(', $$[$0-1], ')')}; 
+ var s = eval('$$'); this.$ = $$[$0-1]; 
 break;
 }
 },
