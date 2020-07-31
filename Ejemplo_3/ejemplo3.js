@@ -87,28 +87,28 @@ case 1:
  this.$ = { val: $$[$0-1].val, node: newNode(yy, yystate, $$[$0-1].node, 'EOF')}; return this.$; 
 break;
 case 2: case 6:
- var s = eval('$$'); this.$ = { val: $$[$0], node: newNode(yy, yystate, $$[$0])}; 
+ var s = eval('$$'); this.$ = { val: $$[$0].val, node: newNode(yy, yystate, $$[$0-1].node, $$[$0].node)}; 
 break;
 case 3:
- var s = eval('$$'); this.$ = { val: s[eval('$$').length-4] + $$[$0], node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)}; 
+ var s = eval('$$'); this.$ = { val: s[s.length-4].val + $$[$0].val, node: newNode(yy, yystate, $$[$0-2], $$[$0-1].node, $$[$0].node)}; 
 break;
 case 4:
- var s = eval('$$'); this.$ = { val: s[eval('$$').length-4] - $$[$0], node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)}; 
+ var s = eval('$$'); this.$ = { val: s[s.length-4].val - $$[$0].val, node: newNode(yy, yystate, $$[$0-2], $$[$0-1].node, $$[$0].node)}; 
 break;
 case 5: case 9:
- var s = eval('$$'); this.$ = { val: s[eval('$$').length-1], node: newNode(yy, yystate, $$[$0].node, 'EPSILON')}; 
+ var s = eval('$$'); this.$ = { val: s[s.length-1].val, node: newNode(yy, yystate, 'EPSILON')}; 
 break;
 case 7:
- var s = eval('$$'); this.$ = { val: s[eval('$$').length-4] * $$[$0], node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)}; 
+ var s = eval('$$'); this.$ = { val: s[s.length-4].val * $$[$0].val, node: newNode(yy, yystate, $$[$0-2], $$[$0-1].node, $$[$0].node)}; 
 break;
 case 8:
- var s = eval('$$'); this.$ = { val: s[eval('$$').length-4] / $$[$0], node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)}; 
+ var s = eval('$$'); this.$ = { val: s[s.length-4].val / $$[$0].val, node: newNode(yy, yystate, $$[$0-2], $$[$0-1].node, $$[$0].node)}; 
 break;
 case 10: case 11:
  var s = eval('$$'); this.$ = { val: Number($$[$0]), node: newNode(yy, yystate, $$[$0])}; 
 break;
 case 12:
- var s = eval('$$'); this.$ = { val: $$[$0-1], node: newNode(yy, yystate, $$[$0-2])}; 
+ var s = eval('$$'); this.$ = { val: $$[$0-1].val, node: newNode(yy, yystate, $$[$0-1])}; 
 break;
 }
 },

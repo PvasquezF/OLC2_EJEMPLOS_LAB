@@ -5,7 +5,7 @@ function parseExample() {
     if (document.getElementById("grafo")) {
         document.getElementById("grafo").remove();
     }
-    var result = ejemplo1.parse(content);
+    var result = ejemplo3.parse(content);
     console.log(result);
     //document.getElementById("salida").value = result;
     document.getElementById("salida").value = result.val;
