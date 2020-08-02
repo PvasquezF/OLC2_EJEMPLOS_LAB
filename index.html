@@ -7,18 +7,20 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="chart/chart.css">
+    <link rel="stylesheet" href="styles.css">
     <title>OLC2 Ejemplos</title>
 </head>
 
 <body>
     <div align='center'>
-        <h1>Ejemplo 1</h1>
+        <h3>Entradas</h3>
         <textarea id="entrada" name="entrada" placeholder="Ingrese la entrada" rows="3" cols="50" class="txtArea"></textarea>
         <br/>
-        <button class="myButton" onclick="parseExample()">Ejecutar</button>
+        <button type="button" class="btn btn-primary" class="myButton" onclick="parseExample()">Ejecutar</button>
         <br/>
         <br/>
         <br/>
+        <h3>Salida</h3>
         <textarea id="salida" name="salida" rows="3" cols="50" class="txtArea2"></textarea>
     </div>
     <script src="main.js"></script>
@@ -28,6 +30,8 @@
     <!-- load the d3.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
     <script src="chart/chart.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,500&display=swap" rel="stylesheet">
 </body>
 
 </html>

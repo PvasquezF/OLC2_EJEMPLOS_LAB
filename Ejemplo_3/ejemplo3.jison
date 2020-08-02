@@ -16,9 +16,10 @@ decimal {entero}"."{entero}
 "+"                   return '+'
 "("                   return '('
 ")"                   return ')'  
-<<EOF>>		       return 'EOF'
+<<EOF>>		            return 'EOF'
 
 /lex
+
 %start INICIO
 
 %%

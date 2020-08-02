@@ -1,0 +1,36 @@
+h3 {
+    font-family: 'Ubuntu', sans-serif !important;
+    color: #ffffff;
+    font-size: 35px !important;
+}
+
+#entrada {
+    border: 1px solid #000000;
+    resize: unset;
+    border-radius: 13px;
+    width: 100%;
+    max-width: 500px;
+    padding-inline-start: 10px;
+}
+
+#salida {
+    border: 1px solid #000000;
+    resize: unset;
+    border-radius: 13px;
+    width: 100%;
+    max-width: 500px;
+    padding-inline-start: 10px;
+}
+
+div {
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    border: 3px solid #000000;
+    border-radius: 13px;
+    width: 35%;
+    height: 45%;
+    background: #9a67ea;
+}
+
+body {}

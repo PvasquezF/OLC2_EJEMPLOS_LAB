@@ -5,15 +5,12 @@ function parseExample() {
     if (document.getElementById("grafo")) {
         document.getElementById("grafo").remove();
     }
-    var result = ejemplo3.parse(content);
-    console.log(result);
-    //document.getElementById("salida").value = result;
+    var result = ejemplo2.parse(content);
     document.getElementById("salida").value = result.val;
-    const a = generateTree([result.node]);
+    generateTree([result.node]);
 }
 
 function newNode(yy, state, ...nodes) {
-    console.log(nodes)
     const parent = getNonTerminal(yy, state);
     const children = [];
     for (let node of nodes) {
