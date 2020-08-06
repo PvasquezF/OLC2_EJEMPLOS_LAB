@@ -84,28 +84,28 @@ performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* actio
 var $0 = $$.length - 1;
 switch (yystate) {
 case 1:
- const temp = getTemp(); this.$ = { temp, node: newNode(yy, yystate, $$[$0-1].node, $$[$0], 'EOF')}; return this.$; console.log(`${$$[$0-1].temp},,,${temp}`); 
+ var temp = getTemp(); this.$ = { temp, val: `${$$[$0-1].val}\n=,${$$[$0-1].temp},,${temp}`, node: newNode(yy, yystate, $$[$0-1].node, $$[$0], 'EOF')}; return this.$; 
 break;
 case 2:
- const temp = getTemp(); this.$ = { temp, node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)};   console.log(`+,${$$[$0-2].temp},${$$[$0].temp},${temp}`);        
+ var temp = getTemp(); this.$ = { temp, val: `${$$[$0-2].val}\n${$$[$0].val}\n+,${$$[$0-2].temp},${$$[$0].temp},${temp}`, node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)}; 
 break;
 case 3:
- const temp = getTemp(); this.$ = { temp, node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)};   console.log(`-,${$$[$0-2].temp},${$$[$0].temp},${temp}`);        
+ var temp = getTemp(); this.$ = { temp, val: `${$$[$0-2].val}\n${$$[$0].val}\n-,${$$[$0-2].temp},${$$[$0].temp},${temp}`, node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)}; 
 break;
 case 4: case 7:
- const temp = getTemp(); this.$ = { temp, node: newNode(yy, yystate, $$[$0].node)};                console.log(`${$$[$0].temp},,,${temp}`);                   
+ var temp = getTemp(); this.$ = { temp, val: `${$$[$0].val}\n=,${$$[$0].temp},,${temp}`,            node: newNode(yy, yystate, $$[$0].node)};              
 break;
 case 5:
- const temp = getTemp(); this.$ = { temp, node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)};   console.log(`*,${$$[$0-2].temp},${$$[$0].temp},${temp}`);        
+ var temp = getTemp(); this.$ = { temp, val: `${$$[$0-2].val}\n${$$[$0].val}\n*,${$$[$0-2].temp},${$$[$0].temp},${temp}`, node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)}; 
 break;
 case 6:
- const temp = getTemp(); this.$ = { temp, node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)};   console.log(`/,${$$[$0-2].temp},${$$[$0].temp},${temp}`);        
+ var temp = getTemp(); this.$ = { temp, val: `${$$[$0-2].val}\n${$$[$0].val}\n/,${$$[$0-2].temp},${$$[$0].temp},${temp}`, node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node)}; 
 break;
 case 8:
- const temp = getTemp(); this.$ = { temp, node: newNode(yy, yystate, $$[$0-2], $$[$0-1], $$[$0])};             console.log(`${$$[$0-1].temp},,,${temp}`);                   
+ var temp = getTemp(); this.$ = { temp, val: `${$$[$0-1].val}\n=,${$$[$0-1].temp},,${temp}`,  node: newNode(yy, yystate, $$[$0-2], $$[$0-1], $$[$0])};                     
 break;
 case 9: case 10:
- const temp = getTemp(); this.$ = { temp, node: newNode(yy, yystate, $$[$0])};                     console.log(`${$$[$0]},,,${temp}`);                        
+ var temp = getTemp(); this.$ = { temp, val: `=,${$$[$0]},,${temp}`,       node: newNode(yy, yystate, $$[$0])};                             
 break;
 }
 },

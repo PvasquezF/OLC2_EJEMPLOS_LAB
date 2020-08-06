@@ -25,20 +25,20 @@ decimal {entero}"."{entero}
 
 %%
 
-INICIO : SUMA EOF           { const temp = getTemp(); $$ = { temp, node: newNode(yy, yystate, $1.node, $2, 'EOF')}; return $$; console.log(`${$1.temp},,,${temp}`); } 
+INICIO : SUMA EOF           { var temp = getTemp(); $$ = { temp, val: `${$1.val}\n=,${$1.temp},,${temp}`, node: newNode(yy, yystate, $1.node, $2, 'EOF')}; return $$; } 
        ;
 
-SUMA : SUMA '+' MULT        { const temp = getTemp(); $$ = { temp, node: newNode(yy, yystate, $1.node, $2, $3.node)};   console.log(`+,${$1.temp},${$3.temp},${temp}`);        }       
-     | SUMA '-' MULT        { const temp = getTemp(); $$ = { temp, node: newNode(yy, yystate, $1.node, $2, $3.node)};   console.log(`-,${$1.temp},${$3.temp},${temp}`);        }
-     | MULT                 { const temp = getTemp(); $$ = { temp, node: newNode(yy, yystate, $1.node)};                console.log(`${$1.temp},,,${temp}`);                   }
+SUMA : SUMA '+' MULT        { var temp = getTemp(); $$ = { temp, val: `${$1.val}\n${$3.val}\n+,${$1.temp},${$3.temp},${temp}`, node: newNode(yy, yystate, $1.node, $2, $3.node)}; }       
+     | SUMA '-' MULT        { var temp = getTemp(); $$ = { temp, val: `${$1.val}\n${$3.val}\n-,${$1.temp},${$3.temp},${temp}`, node: newNode(yy, yystate, $1.node, $2, $3.node)}; }
+     | MULT                 { var temp = getTemp(); $$ = { temp, val: `${$1.val}\n=,${$1.temp},,${temp}`,            node: newNode(yy, yystate, $1.node)};              }
      ;
 
-MULT : MULT '*' VALOR       { const temp = getTemp(); $$ = { temp, node: newNode(yy, yystate, $1.node, $2, $3.node)};   console.log(`*,${$1.temp},${$3.temp},${temp}`);        }       
-     | MULT '/' VALOR       { const temp = getTemp(); $$ = { temp, node: newNode(yy, yystate, $1.node, $2, $3.node)};   console.log(`/,${$1.temp},${$3.temp},${temp}`);        }
-     | VALOR                { const temp = getTemp(); $$ = { temp, node: newNode(yy, yystate, $1.node)};                console.log(`${$1.temp},,,${temp}`);                   }
+MULT : MULT '*' VALOR       { var temp = getTemp(); $$ = { temp, val: `${$1.val}\n${$3.val}\n*,${$1.temp},${$3.temp},${temp}`, node: newNode(yy, yystate, $1.node, $2, $3.node)}; }       
+     | MULT '/' VALOR       { var temp = getTemp(); $$ = { temp, val: `${$1.val}\n${$3.val}\n/,${$1.temp},${$3.temp},${temp}`, node: newNode(yy, yystate, $1.node, $2, $3.node)}; }
+     | VALOR                { var temp = getTemp(); $$ = { temp, val: `${$1.val}\n=,${$1.temp},,${temp}`,            node: newNode(yy, yystate, $1.node)};              }
      ;
 
-VALOR : '(' SUMA ')'        { const temp = getTemp(); $$ = { temp, node: newNode(yy, yystate, $1, $2, $3)};             console.log(`${$2.temp},,,${temp}`);                   }
-      | ENTERO              { const temp = getTemp(); $$ = { temp, node: newNode(yy, yystate, $1)};                     console.log(`${$1},,,${temp}`);                        }
-      | DECIMAL             { const temp = getTemp(); $$ = { temp, node: newNode(yy, yystate, $1)};                     console.log(`${$1},,,${temp}`);                        }
+VALOR : '(' SUMA ')'        { var temp = getTemp(); $$ = { temp, val: `${$2.val}\n=,${$2.temp},,${temp}`,  node: newNode(yy, yystate, $1, $2, $3)};                     }
+      | ENTERO              { var temp = getTemp(); $$ = { temp, val: `=,${$1},,${temp}`,       node: newNode(yy, yystate, $1)};                             }
+      | DECIMAL             { var temp = getTemp(); $$ = { temp, val: `=,${$1},,${temp}`,       node: newNode(yy, yystate, $1)};                             }
       ;

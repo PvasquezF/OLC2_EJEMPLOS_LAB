@@ -29,8 +29,10 @@ div {
     border: 3px solid #000000;
     border-radius: 13px;
     width: 35%;
-    height: 45%;
+    height: 70%;
     background: #9a67ea;
 }
 
-body {}
+.txtArea2 {
+    height: 50%;
+}
