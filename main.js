@@ -51,3 +51,15 @@ function getNonTerminal(yy, state) {
     }
     return nonTerminal;
 }
+
+const templist = [];
+
+function getTemp() {
+    const temp = `t${templist.length}`;
+    templist.push(temp);
+    return temp;
+}
+
+function getTempActual() {
+    return templist[templist.length - 1];
+}
