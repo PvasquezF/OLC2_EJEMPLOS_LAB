@@ -59,7 +59,3 @@ function getTemp() {
     templist.push(temp);
     return temp;
 }
-
-function getTempActual() {
-    return templist[templist.length - 1];
-}
