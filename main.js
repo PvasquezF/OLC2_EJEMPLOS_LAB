@@ -5,7 +5,7 @@ function parseExample() {
     if (document.getElementById("grafo")) {
         document.getElementById("grafo").remove();
     }
-    var result = ejemplo4.parse(content);
+    var result = ejemplo5.parse(content);
     document.getElementById("salida").value = result.val;
     generateTree([result.node]);
 }
