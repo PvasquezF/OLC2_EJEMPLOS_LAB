@@ -84,31 +84,53 @@ performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* actio
 var $0 = $$.length - 1;
 switch (yystate) {
 case 1:
- this.$ = { val: $$[$0-1].loc, node: newNode(yy, yystate, $$[$0-1].node, 'EOF') }; console.log(this.$.val); return this.$; 
+ this.$ = { val: $$[$0-1].log.join('\n'), node: newNode(yy, yystate, $$[$0-1].node, 'EOF') }; return this.$; 
 break;
 case 2:
-  this.$ = { loc:{ x: $$[$0].loc.x, y: $$[$0].loc.y }, node: newNode(yy, yystate, $$[$0-1].node, $$[$0].node) } 
+ this.$ = { loc:{ x: $$[$0].loc.x, y: $$[$0].loc.y }, log: $$[$0].log, node: newNode(yy, yystate, $$[$0-1].node, $$[$0].node) } 
 break;
 case 3:
-this.$ = { loc:{ x: Number($$[$0-3]), y: Number($$[$0-1]) }, node: newNode(yy, yystate, $$[$0-4], $$[$0-3], $$[$0-2], $$[$0-1], $$[$0]) } 
+ this.$ = { loc:{ x: Number($$[$0-3]), y: Number($$[$0-1]) }, log:[`${$$[$0-3]}, ${$$[$0-1]}`], node: newNode(yy, yystate, $$[$0-4], $$[$0-3], $$[$0-2], $$[$0-1], $$[$0]) } 
 break;
 case 4:
- s = eval('$$'); this.$ = { loc:{ x: s[s.length-3].loc.x + $$[$0].loc.x, y: s[s.length-3].loc.y + $$[$0].loc.y }, node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node) } 
+ 
+                                   s = eval('$$'); 
+                                   this.$ = { 
+                                             loc: { 
+                                                       x: s[s.length-3].loc.x + $$[$0].loc.x, 
+                                                       y: s[s.length-3].loc.y + $$[$0].loc.y 
+                                                  }, 
+                                             log:[...s[s.length-3].log], 
+                                             node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node) 
+                                        }
+                                   this.$.log.push(`${this.$.loc.x}, ${this.$.loc.y}`);
+                              
 break;
 case 5:
- s = eval('$$'); this.$ = { loc:{ x: s[s.length-2].loc.x + $$[$0].loc.x, y: s[s.length-2].loc.y + $$[$0].loc.y }, node: newNode(yy, yystate, $$[$0].node) } 
+ 
+                                   s = eval('$$'); 
+                                   this.$ = { 
+                                             loc: { 
+                                                       x: s[s.length-2].loc.x + $$[$0].loc.x, 
+                                                       y: s[s.length-2].loc.y + $$[$0].loc.y 
+                                                  }, 
+                                             log:[...s[s.length-2].log], 
+                                             node: newNode(yy, yystate, $$[$0].node) 
+                                        } 
+                                   this.$.log.push(`${this.$.loc.x}, ${this.$.loc.y}`);
+                              
 break;
 case 6:
-  this.$ = { loc:{ x: 0, y: 1 }, node: newNode(yy, yystate, $$[$0]) } 
+  this.$ = { loc:{ x: +0, y: +1 }, node: newNode(yy, yystate, $$[$0]) } 
 break;
 case 7:
-  this.$ = { loc:{ x: 0, y: -1 }, node: newNode(yy, yystate, $$[$0]) } 
+  this.$ = { loc:{ x: +0, y: -1 }, node: newNode(yy, yystate, $$[$0]) } 
 break;
 case 8:
-  this.$ = { loc:{ x: 1, y: 0 }, node: newNode(yy, yystate, $$[$0]) } 
+  this.$ = { loc:{ x: +1, y: +0 }, node: newNode(yy, yystate, $$[$0]) } 
 break;
 case 9:
-  this.$ = { loc:{ x: -1, y: 0 }, node: newNode(yy, yystate, $$[$0]) } 
+  this.$ = { loc:{ x: -1, y: +0 }, node: newNode(yy, yystate, $$[$0]) } 
 break;
 }
 },
