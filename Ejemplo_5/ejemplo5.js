@@ -94,13 +94,12 @@ case 3:
 break;
 case 4:
  
-                                   s = eval('$$'); 
                                    this.$ = { 
                                              loc: { 
-                                                       x: s[s.length-3].loc.x + $$[$0].loc.x, 
-                                                       y: s[s.length-3].loc.y + $$[$0].loc.y 
+                                                       x: $$[$0-2].loc.x + $$[$0].loc.x, 
+                                                       y: $$[$0-2].loc.y + $$[$0].loc.y 
                                                   }, 
-                                             log:[...s[s.length-3].log], 
+                                             log:[...$$[$0-2].log], 
                                              node: newNode(yy, yystate, $$[$0-2].node, $$[$0-1], $$[$0].node) 
                                         }
                                    this.$.log.push(`${this.$.loc.x}, ${this.$.loc.y}`);
@@ -109,6 +108,7 @@ break;
 case 5:
  
                                    s = eval('$$'); 
+                                   console.log(s);
                                    this.$ = { 
                                              loc: { 
                                                        x: s[s.length-2].loc.x + $$[$0].loc.x, 

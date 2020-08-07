@@ -34,19 +34,19 @@ PI : '(' num ',' num ')'      { $$ = { loc:{ x: Number($2), y: Number($4) }, log
    ;
 
 MOV : MOV ';' D               { 
-                                   s = eval('$$'); 
                                    $$ = { 
                                              loc: { 
-                                                       x: s[s.length-3].loc.x + $3.loc.x, 
-                                                       y: s[s.length-3].loc.y + $3.loc.y 
+                                                       x: $1.loc.x + $3.loc.x, 
+                                                       y: $1.loc.y + $3.loc.y 
                                                   }, 
-                                             log:[...s[s.length-3].log], 
+                                             log:[...$1.log], 
                                              node: newNode(yy, yystate, $1.node, $2, $3.node) 
                                         }
                                    $$.log.push(`${$$.loc.x}, ${$$.loc.y}`);
                               }
     | D                       { 
                                    s = eval('$$'); 
+                                   console.log(s);
                                    $$ = { 
                                              loc: { 
                                                        x: s[s.length-2].loc.x + $1.loc.x, 
