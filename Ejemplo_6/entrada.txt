@@ -1,0 +1,44 @@
+if (3 * 3) {
+    3 * 4
+} else if (3 < 4) {
+    3 + 3
+    if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    } else if (3 < 4) {
+        3 + 3
+    }
+} else {
+    3 + 3
+}
